@@ -1,0 +1,12 @@
+
+# nav
+nav:
+- HOME: /
+- ABOUT: /about
+- GITHUB: https://github.com/QZEming
+- CSDN: https://blog.csdn.net/zemprogram/
+
+# info
+title: 前端小黑
+avatar: /img/assets/logo.png
+favicon: /img/assets/favicon.ico

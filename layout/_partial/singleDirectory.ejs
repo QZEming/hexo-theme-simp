@@ -1,0 +1,23 @@
+<div class="singleDirectory">
+    <h2 class="directoryTitle">
+        <a href=<%=post.path %>>
+            <%= post.title %>
+        </a>
+    </h2>
+    <div class="directoryLabel">
+        <span class="directoryDate icon-calendar"><%= post.date.format('YYYY-MM-D') %> </span>
+        <div class="directoryTags icon-tag">
+            <% if (post.tags && post.tags.length){ %>
+                <%- list_tags(post.tags, {
+                      show_count: false,
+                      class: 'articleTag',
+                      style: 'none',
+                      separator:''
+                    }) %>
+                    <% } %>
+        </div>
+    </div>
+    <article class="directoryExcerpt">
+        <%- post.excerpt %>
+    </article>
+</div>

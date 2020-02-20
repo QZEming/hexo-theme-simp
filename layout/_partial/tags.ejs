@@ -1,0 +1,10 @@
+<div class="tags asideContainer">
+    <h3 class="asideTitle">Tags</h3>
+    <div class="asideContent">
+        <% if (site.tags && site.tags.length){ %>
+            <%- list_tags(site.tags, {
+              class: 'article-tag',
+            }) %>
+                <% } %>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+.article-tag-list{
+    box-sizing: border-box;
+    padding: 10px;
+    .article-tag-list-item{
+        display:flex;
+        justify-content: space-between;
+        .article-tag-list-link{
+            opacity: .8;
+            color: @topicColor;
+            &:hover{
+                opacity: 1;
+                color: #2ac3ff;
+            }
+        }
+        .article-tag-list-count{
+            opacity: .6;
+            color: @topicColor;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+// 目录
+.directory{
+    .singleDirectory{
+        padding: 10px;
+        margin: 0px 0px 20px 0px;
+        border-radius: 10px 0px 0px 0px;
+        background-color: #fdfcf8;
+        .directoryTitle{
+            padding-bottom: 6px;
+            border-bottom: 2px rgba(68, 68, 68,1) dotted;
+            color: rgba(68, 68, 68,.8);
+            a{
+                display: inline-block;
+                max-width: 80%;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+                color: rgba(68, 68, 68,.8);
+                @keyframes hoverTitle{
+                    0%{
+                        color: rgba(68, 68, 68,.8);
+                        transform: scale(1) translatex(0px);
+                    }
+                    100%{
+                        color: #2ac3ff;
+                        transform: scale(1.05) translatex(10px);
+                    }
+                }
+                &:hover{
+                    animation: hoverTitle .5s 1 forwards;
+                }
+            }
+        }
+        .directoryLabel{
+            display: flex;
+            justify-content: space-between;
+            margin: 4px;
+            font-size: 14px;
+            .directoryDate{
+                opacity: .6;
+                &::before{
+                    padding-right: 5px;
+                }
+            }
+            .directoryTags{
+                .articleTag-link{
+                    margin-right: 4px;
+                    padding:1px 5px;
+                    border-radius: 5px;
+                    color: #fff;
+                    background-color: rgba(68, 68, 68,.4);
+                    &:hover{
+                        background-color: rgba(68, 68, 68,.7);
+                    }
+                }
+            }
+        }
+        .directoryExcerpt{
+            display: -webkit-box;
+            margin: 15px 0px;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
+            font-size: 14px;
+            color:@topicColor;
+            *{
+                display: inline;
+                font-size: 14px;
+                font-weight: normal;
+                color: @topicColor;
+            }
+        }
+    }
+}

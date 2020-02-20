@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<%- partial('_partial/head') %>
+
+    <body>
+        <%- partial('_partial/header') %>
+            <div class="mainContainer">
+                <%- partial('_partial/aside') %>
+                    <%- partial('_partial/main') %>
+                        <% if(is_post()){ %>
+                            <%- partial('_partial/articleDirectory') %>
+                                <% } %>
+            </div>
+            <%- partial('_partial/footer') %>
+                <div class="backTop icon-arrow-up hideBtn" id="backTop"></div>
+                <script src="/js/script.js"></script>
+    </body>
+
+</html>

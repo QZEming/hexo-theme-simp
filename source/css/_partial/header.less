@@ -1,0 +1,46 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 120px;
+    overflow: hidden;
+    background-color: @topicColor;
+    .avatarContainer{
+        display: flex;
+        img{
+            height: 60%;
+        }
+        .blogName{
+            font-family: "楷体";
+            text-indent: 60px;
+            color: rgba(201,201,201,1);
+        }
+    }
+    // 顶部导航栏
+    .topNav{
+        position: relative;
+        padding: 20px;
+        a{
+            position: relative;
+            right: 200px;
+            margin-right: 10px;
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+            color: rgba(201,201,201,.7);
+            cursor: pointer;
+            &:hover{
+                color:#2ac3ff;
+            }
+        }
+        .chooseNav{
+            color: rgba(201,201,201,1);
+        }
+        img{
+            position: absolute;
+            right: 0px;
+            top: 5px;
+            height: 120px;
+            filter: opacity(.6);
+        }
+    }
+}

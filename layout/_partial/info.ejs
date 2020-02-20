@@ -1,0 +1,21 @@
+<div class="info asideContainer">
+    <div class="imgContainer">
+        <img src=<%=theme.avatar %> alt="作者头像">
+    </div>
+    <div class="authorInfo">
+        <p class="authorName">
+            <%=config.author%>
+        </p>
+        <p class="subtitle">
+            <%=config.subtitle %>
+        </p>
+        <p class="description">
+            <%=config.description%>
+        </p>
+        <p class="keywords">
+            <% config.keywords.forEach(keyword => { %>
+                <span class="keyword"><%=keyword%></span>
+                <% }) %>
+        </p>
+    </div>
+</div>
