@@ -1,19 +1,19 @@
 (function(){
     let backTop = document.getElementById('backTop')
     window.addEventListener('scroll',function(){
-        if(document.body.scrollTop>document.body.clientHeight&&backTop.className=="backTop icon-arrow-up hideBtn"){
+        if(document.documentElement.scrollTop>document.documentElement.clientHeight&&backTop.className=="backTop icon-arrow-up hideBtn"){
             backTop.className = "backTop icon-arrow-up showBtn";
-        }else if(document.body.scrollTop<=document.body.clientHeight&&backTop.className=="backTop icon-arrow-up showBtn"){
+        }else if(document.documentElement.scrollTop<=document.documentElement.clientHeight&&backTop.className=="backTop icon-arrow-up showBtn"){
             backTop.className = "backTop icon-arrow-up hideBtn";
         }
     })
     backTop.addEventListener('click',function(){
         function move(){
-            if(document.body.scrollTop<10){
-                document.body.scrollTop = 0;
+            if(document.documentElement.scrollTop<10){
+                document.documentElement.scrollTop = 0;
                 return false;
             }else{
-                document.body.scrollTop-=document.body.scrollTop/10
+                document.documentElement.scrollTop-=document.documentElement.scrollTop/10
                 return true;
             }
         }

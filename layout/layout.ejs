@@ -13,7 +13,13 @@
             </div>
             <%- partial('_partial/footer') %>
                 <div class="backTop icon-arrow-up hideBtn" id="backTop"></div>
-                <script src="/js/script.js"></script>
+                <% if (config.highlight.enable) { %>
+                    <script src="/js/highlight.js"></script>
+                    <script>
+                        hljs.initHighlightingOnLoad();
+                    </script>
+                    <% } %>
+                        <script src="/js/script.js"></script>
     </body>
 
 </html>

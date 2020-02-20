@@ -60,18 +60,7 @@ ul{
     list-style:none;
 }
 
-// 滚动条设置
-::-webkit-scrollbar {
-    width: 6px;
-    height: 2px;
-}
-::-webkit-scrollbar-thumb:vertical {
-    height: 5px;
-    background-color: rgb(68, 68, 68);
-}
-
-@topicColor:rgb(68, 68, 68);
-@asideWidth:280px;
+@import "_variable.less";
 @import "_partial/header.less";
 @import "_partial/info.less";
 @import "_partial/directory.less";
@@ -80,6 +69,17 @@ ul{
 @import "_partial/tags.less";
 @import "_partial/article.less";
 @import "_partial/articleDirectory.less";
+@import "_post/code.less";
+// 滚动条设置
+::-webkit-scrollbar {
+    width: 6px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background-color: @topicColor;
+}
+
 // 主要内容
 .mainContainer{
     display: flex;
@@ -97,7 +97,7 @@ ul{
     max-width: @asideWidth;
     .asideContainer{
         margin-bottom: 20px;
-        background-color: #fdfcf8;
+        background-color: @containerBgColor;
         .asideTitle{
             padding: 5px;
             color: #fff;
@@ -117,7 +117,7 @@ ul{
     cursor: pointer;
     opacity: .6;
     color: #fff;
-    background-color: rgb(68, 68, 68);
+    background-color: @topicColor;
     &:hover{
         filter: brightness(.8);
     }

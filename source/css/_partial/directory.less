@@ -2,9 +2,9 @@
 .directory{
     .singleDirectory{
         padding: 10px;
-        margin: 0px 0px 20px 0px;
+        margin: 0px 40px 20px 0px;
         border-radius: 10px 0px 0px 0px;
-        background-color: #fdfcf8;
+        background-color: @containerBgColor;
         .directoryTitle{
             padding-bottom: 6px;
             border-bottom: 2px rgba(68, 68, 68,1) dotted;
@@ -22,7 +22,7 @@
                         transform: scale(1) translatex(0px);
                     }
                     100%{
-                        color: #2ac3ff;
+                        color: @hoverColor;
                         transform: scale(1.05) translatex(10px);
                     }
                 }
