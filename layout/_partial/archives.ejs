@@ -1,0 +1,27 @@
+<div class="archives">
+    <h1 class="archiveTitle">
+        <%= __('nav.ARCHIVE')%>
+    </h1>
+    <div class="archiveContent">
+        <% var posts = site.posts.data
+        posts.sort((p1,p2)=>Number(p2.date)-Number(p1.date))
+        var signYear = posts[0].date.format('YYYY') %>
+            <h3 class="yearTit">
+                <%= signYear %>
+            </h3>
+            <% posts.forEach(post => { %>
+                <% if(post.date.format('YYYY')!=signYear) {
+                            signYear = post.date.format('YYYY')%>
+                    <h3 class="yearTit">
+                        <%= signYear %>
+                    </h3>
+                    <% } %>
+                        <p class="postContent">
+                            <span class="postDate"><%=post.date.format('YYYY-MM')%></span>
+                            <a class="postTitle" href=<%="/" +post.path %> >
+                                <%=post.title%>
+                            </a>
+                        </p>
+                        <% }) %>
+    </div>
+</div>

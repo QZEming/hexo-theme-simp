@@ -1,0 +1,45 @@
+.pagination{
+    padding: 5px 0px;
+    margin: -10px 40px 0px 0px;
+    background: @containerBgColor;
+    text-align: center;
+    a{
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px solid @topicColor;
+        color: @topicColor;
+        &:hover{
+            cursor: pointer;
+            color: @hoverColor;
+            border-color: @hoverColor;
+        }
+    }
+    .currentPage{
+        color: #eee;
+        background: @topicColor;
+        &:hover{
+            border-color: @topicColor;
+            color: #eee;
+            background: @topicColor;
+        }
+    }
+    .prev-btn,.next-btn{
+        display: inline;
+        padding: 2px 5px;
+        border-radius: 5px;
+        :hover{
+            color: @hoverColor;
+            border-color: @hoverColor;
+        }
+    }
+    .invalid-btn{
+        opacity: .5;
+        &:hover{
+            color: @topicColor;
+            border-color: @topicColor;
+        }
+    }
+}

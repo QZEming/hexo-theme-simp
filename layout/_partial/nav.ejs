@@ -1,7 +1,7 @@
 <nav class="topNav">
     <% theme.nav.forEach(r => { %>
         <a href=<%=Object.values(r)%>  class=<%=Object.values(r)=="/"+page.path? "chooseNav": "" %>>
-                    <%= Object.keys(r) %>
+                    <%= __('nav.'+Object.keys(r)) %>
                 </a>
         <% }) %>
             <img src="/img/assets/code.png" alt="avatar">

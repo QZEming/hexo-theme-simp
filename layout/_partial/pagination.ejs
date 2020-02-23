@@ -1,0 +1,22 @@
+<div class="pagination">
+    <a class="prev-btn <%= page.prev==0?'invalid-btn':undefined %>" <% if (page.prev!=0) { %>
+        <% if(page.prev ==1){%>
+            href="/"
+            <% }else{ %>
+                href=
+                <%='/page/' + page.prev %>
+                    <% } %>
+                        <% } %> >上一页</a>
+    <% for( let index = 0; index < page.total; index++ ) { %>
+        <% let href =`/page/${index+1}`%>
+            <a <% if (index+1==page.current) { %>
+                    class="currentPage"
+            <% } %>
+            
+                href=<%=index+1==1?'/':href %> 
+            ><%= index+1%></a>
+            <% } %>
+                <a class="next-btn <%= page.next==0?'invalid-btn':undefined %>" <% if (page.next!=0) { %>
+                        href=<%='/page/' + page.next %>
+                    <% } %> >下一页</a>
+</div>

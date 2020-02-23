@@ -1,0 +1,10 @@
+nav:
+  HOME: 首页
+  ABOUT: 关于
+  ARCHIVE: 归档
+  GITHUB: GITHUB
+  CSDN: CSDN
+
+aside:
+  TAGS: 标签
+  CATEGORYS: 分类

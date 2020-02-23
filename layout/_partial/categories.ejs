@@ -1,0 +1,12 @@
+<div class="categories asideContainer">
+    <h3 class="asideTitle">
+        <%= __('aside.CATEGORIES') %>
+    </h3>
+    <div class="asideContent">
+        <% if (site.categories && site.categories.length){ %>
+            <%- list_categories(site.categories, {
+                  class: 'article-tag',
+                }) %>
+                <% } %>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+nav:
+  HOME: HOME
+  ABOUT: ABOUT
+  ARCHIVE: ARCHIVE
+  GITHUB: GITHUB
+  CSDN: CSDN
+
+aside:
+  TAGS: Tags
+  CATEGORIES: categories

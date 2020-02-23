@@ -1,7 +1,9 @@
 <main class="main">
-    <% if (page.posts) { %>
-        <%- partial('directory') %>
-            <% }else{ %>
-                <%- partial('article') %>
-                    <%}%>
+    <% if (is_post()||is_page()) { %>
+        <%- partial('article') %>
+            <% }else if(is_archive()){ %>
+                <%- partial('archives') %>
+                    <% }else if(page.posts){ %>
+                        <%- partial('directory') %>
+                            <%}%>
 </main>
