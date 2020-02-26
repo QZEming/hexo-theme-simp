@@ -21,3 +21,11 @@ npm install hexo-renderer-less --save
 en：英文（默认）
 zh-tw；中文
 相应可更换语言的词放在languages文件夹中
+
+## 开启动画
+通过修改主题下的_config.yml配置文件中的canvas可以选择是否启用canvas动画
+
+## 侧边栏设置
+
+### 标签分类默认显示数量设置
+通过修改主题下的_config.yml配置文件中的tagsLen和categoriesLen可以设置默认允许显示的数量

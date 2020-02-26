@@ -2,11 +2,39 @@
     <h3 class="asideTitle">
         <%= __('aside.CATEGORIES') %>
     </h3>
-    <div class="asideContent">
+    <div id="categoriesContaner" class="asideContent shrinkContainer">
         <% if (site.categories && site.categories.length){ %>
-            <%- list_categories(site.categories, {
-                  class: 'article-tag',
-                }) %>
+            <div class="article-tag-list part-list">
+                <% let count=0 %>
+                    <% site.categories.forEach(category => { %>
+                        <% if(count< theme.categoriesLen){%>
+                            <div class="article-tag-list-item">
+                                <a class="article-tag-list-link" href=<%="/categories/" +category.name%> data-text=<%= category.name %> >
+                            <%= category.name %>
+                        </a>
+                                <span class="article-tag-list-count"><%= category.posts.length %> </span>
+                            </div>
+                            <%}%>
+                                <% count++ %>
+                                    <% }) %>
+            </div>
+
+            <div class="article-tag-list whole-list">
+                <% site.categories.forEach(category => { %>
+                    <div class="article-tag-list-item">
+                        <a class="article-tag-list-link" href=<%="/categories/" +category.name%> data-text=<%= category.name %> >
+                        <%= category.name %>
+                    </a>
+                        <span class="article-tag-list-count"><%= category.posts.length %> </span>
+                    </div>
+                    <% }) %>
+            </div>
+            <% if (site.categories.length>theme.categoriesLen) { %>
+                <p class="conHandle">
+                    <span id="categoriesSpread">展开</span>
+                    <span id="categoriesPackUP">收起</span>
+                </p>
                 <% } %>
+                    <% } %>
     </div>
 </div>

@@ -7,4 +7,14 @@
             <title>
                 <%= theme.title %>
             </title>
+            <% if (theme.canvas) { %>
+                <style>
+                    #myCanvas {
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                    }
+                </style>
+                <% } %>
+
 </head>

@@ -11,3 +11,10 @@ nav:
 title: 前端小黑
 avatar: /img/assets/logo.png
 favicon: /img/assets/favicon.ico
+
+# animation
+canvas: true
+
+# aside
+tagsLen: 7
+categoriesLen: 5

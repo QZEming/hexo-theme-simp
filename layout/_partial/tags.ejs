@@ -2,11 +2,40 @@
     <h3 class="asideTitle">
         <%= __('aside.TAGS') %>
     </h3>
-    <div class="asideContent">
+    <div id="tagsContainer" class="asideContent shrinkContainer">
         <% if (site.tags && site.tags.length){ %>
-            <%- list_tags(site.tags, {
-              class: 'article-tag',
-            }) %>
+
+            <div class="article-tag-list part-list">
+                <% let count=0 %>
+                    <% site.tags.forEach(tag => { %>
+                        <% if(count< theme.tagsLen){%>
+                            <div class="article-tag-list-item">
+                                <a class="article-tag-list-link" href=<%="/tags/" +tag.name%> data-text=<%= tag.name %> >
+                            <%= tag.name %>
+                        </a>
+                                <span class="article-tag-list-count"><%= tag.posts.length %> </span>
+                            </div>
+                            <%}%>
+                                <% count++ %>
+                                    <% }) %>
+            </div>
+
+            <div class="article-tag-list whole-list">
+                <% site.tags.forEach(tag => { %>
+                    <div class="article-tag-list-item">
+                        <a class="article-tag-list-link" href=<%="/tags/" +tag.name%> data-text=<%= tag.name %> >
+                        <%= tag.name %>
+                    </a>
+                        <span class="article-tag-list-count"><%= tag.posts.length %> </span>
+                    </div>
+                    <% }) %>
+            </div>
+            <% if (site.tags.length>theme.tagsLen) { %>
+                <p class="conHandle">
+                    <span id="tagsSpread">展开</span>
+                    <span id="tagsPackUP">收起</span>
+                </p>
                 <% } %>
+                    <% } %>
     </div>
 </div>
