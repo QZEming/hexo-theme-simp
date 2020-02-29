@@ -1,0 +1,19 @@
+<div class="asideContainer newPostContainer">
+    <h3 class="asideTitle">
+        <%= __('aside.NEWPOSTS') %>
+    </h3>
+    <div class="asideContent">
+        <% var len = site.posts.length>theme.newpostsLen?theme.newpostsLen:site.posts.length %>
+            <% var posts = site.posts.data
+            posts.sort((p1,p2)=>Number(p2.date)-Number(p1.date))%>
+                <% for( let index = 0; index < len; index++ ) { %>
+                    <div class="article-tag-list">
+                        <div class="article-tag-list-item">
+                            <a href=<%="/" +posts[index].path%> class="article-tag-list-link">
+                        <%= posts[index].title%>
+                            </a>
+                        </div>
+                    </div>
+                    <% } %>
+    </div>
+</div>

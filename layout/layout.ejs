@@ -3,28 +3,43 @@
 <%- partial('_partial/head') %>
 
     <body>
+        <!-- 头部 -->
         <%- partial('_partial/header') %>
-            <div class="mainContainer">
-                <%- partial('_partial/aside') %>
-                    <%- partial('_partial/main') %>
-                        <% if(is_post()){ %>
-                            <%- partial('_partial/articleDirectory') %>
+            <!-- 主要部分 -->
+            <% if (is_page()&&page.title == 'statistics') { %>
+
+                <% }else if(is_page()&&page.title == '404'){ %>
+                    <%- partial('404.ejs') %>
+                        <% }else if(false){ %>
+
+                            <% }else{ %>
+                                <div class="mainContainer">
+                                    <%- partial('_partial/aside') %>
+                                        <%- partial('_partial/main') %>
+                                            <% if(is_post()){ %>
+                                                <%- partial('_partial/articleDirectory') %>
+                                                    <% } %>
+                                </div>
                                 <% } %>
-            </div>
-            <%- partial('_partial/footer') %>
-                <div class="backTop icon-arrow-up hideBtn" id="backTop"></div>
-                <% if (config.highlight.enable) { %>
-                    <script src="/js/highlight.js"></script>
-                    <script>
-                        hljs.initHighlightingOnLoad();
-                    </script>
-                    <% } %>
-                        <% if (theme.canvas) { %>
-                            <canvas id="myCanvas">
+                                    <!-- 底部 -->
+                                    <%- partial('_partial/footer') %>
+                                        <div class="backTop icon-arrow-up hideBtn" id="backTop"></div>
+                                        <% if (config.highlight.enable) { %>
+                                            <script src="/js/highlight.js"></script>
+                                            <script>
+                                                hljs.initHighlightingOnLoad();
+                                            </script>
+                                            <% } %>
+                                                <% if (theme.topCanvas) { %>
+                                                    <canvas id="myCanvas">
                                     </canvas>
-                            <script src="/js/canvas.js"></script>
-                            <% } %>
-                                <script src="/js/script.js"></script>
+                                                    <script src="/js/canvas.js"></script>
+                                                    <% } %>
+                                                        <% if(theme.bgCanvas){ %>
+                                                            <canvas id="bgCanvas"></canvas>
+                                                            <script src="/js/bgCanvas.js"></script>
+                                                            <% } %>
+                                                                <script src="/js/script.js"></script>
     </body>
 
 </html>

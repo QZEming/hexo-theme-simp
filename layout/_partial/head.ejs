@@ -7,7 +7,7 @@
             <title>
                 <%= theme.title %>
             </title>
-            <% if (theme.canvas) { %>
+            <% if (theme.topCanvas) { %>
                 <style>
                     #myCanvas {
                         position: absolute;
@@ -16,5 +16,41 @@
                     }
                 </style>
                 <% } %>
+                    <%  if(is_page()&&page.title == '404'){ %>
+                        <style>
+                            .error {
+                                text-align: center;
+                            }
+                            
+                            .error img {
+                                width: 400px;
+                                border-radius: 30px;
+                            }
+                            
+                            .error {
+                                color: rgba(68, 68, 68, .8);
+                            }
+                            
+                            .error .statusCode {
+                                font-size: 24px;
+                            }
+                        </style>
+                        <% } %>
+                            <% if (theme.bgCanvas) { %>
+                                <style>
+                                    #bgCanvas {
+                                        background-color: #eee;
+                                        z-index: -1;
+                                        position: fixed;
+                                        display: block;
+                                        top: 0px;
+                                        margin: 0 auto;
+                                    }
+                                    
+                                    body {
+                                        background: transparent;
+                                    }
+                                </style>
+                                <% } %>
 
 </head>
