@@ -40,5 +40,10 @@ clickColor用于设置点击后可能出现的颜色
 ## 404设置
 通过修改主题下的_config.yml配置文件中的errorImg可以修改404时显示的图片
 
+## 页面切换时的title改变
+通过修改主题下的_config.yml配置文件中的isTitleChange可以选择是否启用该功能
+* leaveText：离开时的文本
+* backText：回来时的文本
+
 ---
 在此特别感谢某位不透露姓名的设计大佬给我提供的图片

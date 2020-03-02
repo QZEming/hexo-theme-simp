@@ -27,3 +27,8 @@ errorImg: /img/assets/404error.gif
 isMouseClick: true
 clickText: ["html","css","javascript","vue","react","angular","jquery"]
 clickColor: ["#FF0000", "#FF7F00", "#FFFF00 ", "#00FF00 ", "#00FFFF ", "#0000FF", "#8B00FF"]
+
+# title change
+isTitleChange: true
+leaveText: "页面要爆炸啦快回来！！！！！"
+backText: "爆炸什么的当然是开玩笑的啦~"
