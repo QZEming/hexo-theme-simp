@@ -24,67 +24,95 @@
                                     <div class="backTop icon-arrow-up hideBtn" id="backTop"></div>
                                     <% if (config.highlight.enable) { %>
                                         <script src="/js/highlight.js"></script>
-                                        <script>
-                                            hljs.initHighlightingOnLoad();
-                                        </script>
                                         <% } %>
-                                            <!-- 页面切换title改变 -->
-                                            <% if (theme.isTitleChange) { %>
-                                                <script>
-                                                    document.addEventListener('visibilitychange', function() {
-                                                        if (document.visibilityState == 'hidden') {
-                                                            document.querySelector("title").innerText = "<%= theme.leaveText%>"
-                                                        } else {
-                                                            document.querySelector("title").innerText = "<%= theme.backText%>"
-                                                        }
-                                                    })
-                                                </script>
+                                            <script>
+                                                <% if (config.highlight.enable) { %>
+                                                hljs.initHighlightingOnLoad();
                                                 <% } %>
-                                                    <!-- 鼠标点击字体浮现 -->
-                                                    <% if(theme.isMouseClick){%>
-                                                        <% let arr = [1,2,3] %>
-                                                            <script>
-                                                                (function() {
-                                                                    // 添加鼠标点击后随动画
-                                                                    const clickColors = []
-                                                                    const clickText = []
-                                                                    <% theme.clickColor.forEach(c => { %>
-                                                                    clickColors.push("<%= c %>")
-                                                                    <% }) %>
-                                                                    <% theme.clickText.forEach(t => { %>
-                                                                    clickText.push("<%= t %>")
-                                                                    <% }) %>
+                                                // 页面切换title改变 
+                                                <% if (theme.isTitleChange) { %>
+                                                document.addEventListener('visibilitychange', function() {
+                                                    if (document.visibilityState == 'hidden') {
+                                                        document.querySelector("title").innerText = "<%= theme.leaveText%>"
+                                                    } else {
+                                                        document.querySelector("title").innerText = "<%= theme.backText%>"
+                                                    }
+                                                })
+                                                <% } %>
+                                                // 复制到剪贴板时自动加出处
+                                                <% if (theme.isCopyChange) { %>
+                                                window.addEventListener('copy', () => {
+                                                    let selection = window.getSelection()
+                                                    if (selection.toString().length >= <%= theme.copyLen%>) {
+                                                        const appendLink = `
+                                                        原文出自<%= config.url%>
+                                                        作者：<%= config.author%>
+                                                        <%= theme.copyText%>`
+                                                        if (window.clipboardData) { // Internet Explorer
+                                                            const copytext = selection.toString() + appendLink;
+                                                            window.clipboardData.setData("Text", copytext);
+                                                        } else {
 
-                                                                    function createClickEl(text) {
-                                                                        let div = document.createElement("div")
-                                                                        div.className = "floatText"
-                                                                        div.innerText = text
-                                                                        return div
-                                                                    }
-                                                                    window.addEventListener("click", function(e) {
-                                                                        let rt = Math.floor(Math.random() * clickText.length)
-                                                                        let el = createClickEl(clickText[rt])
-                                                                        let rc = Math.floor(Math.random() * clickColors.length)
-                                                                        el.style.left = e.pageX + "px"
-                                                                        el.style.top = e.pageY + "px"
-                                                                        el.style.color = clickColors[rc]
-                                                                        document.querySelector('body').appendChild(el)
-                                                                        setTimeout(() => {
-                                                                            document.querySelector('body').removeChild(el)
-                                                                        }, 1000);
-                                                                    })
-                                                                })()
-                                                            </script>
+                                                            const copytext = selection.toString() + appendLink;
+                                                            var newdiv = document.createElement('div');
+                                                            newdiv.style.position = 'absolute';
+                                                            newdiv.style.left = '-99999px';
+                                                            document.body.appendChild(newdiv);
+                                                            newdiv.innerHTML = copytext;
+                                                            selection.selectAllChildren(newdiv);
+                                                            window.setTimeout(function() {
+                                                                document.body.removeChild(newdiv);
+                                                            }, 0);
+                                                        }
+                                                    }
+                                                })
+                                                <% } %>
+                                            </script>
+                                            <!-- 鼠标点击字体浮现 -->
+                                            <% if(theme.isMouseClick){%>
+                                                <% let arr = [1,2,3] %>
+                                                    <script>
+                                                        (function() {
+                                                            // 添加鼠标点击后随动画
+                                                            const clickColors = []
+                                                            const clickText = []
+                                                            <% theme.clickColor.forEach(c => { %>
+                                                            clickColors.push("<%= c %>")
+                                                            <% }) %>
+                                                            <% theme.clickText.forEach(t => { %>
+                                                            clickText.push("<%= t %>")
+                                                            <% }) %>
+
+                                                            function createClickEl(text) {
+                                                                let div = document.createElement("div")
+                                                                div.className = "floatText"
+                                                                div.innerText = text
+                                                                return div
+                                                            }
+                                                            window.addEventListener("click", function(e) {
+                                                                let rt = Math.floor(Math.random() * clickText.length)
+                                                                let el = createClickEl(clickText[rt])
+                                                                let rc = Math.floor(Math.random() * clickColors.length)
+                                                                el.style.left = e.pageX + "px"
+                                                                el.style.top = e.pageY + "px"
+                                                                el.style.color = clickColors[rc]
+                                                                document.querySelector('body').appendChild(el)
+                                                                setTimeout(() => {
+                                                                    document.querySelector('body').removeChild(el)
+                                                                }, 1000);
+                                                            })
+                                                        })()
+                                                    </script>
+                                                    <% } %>
+                                                        <% if (theme.topCanvas) { %>
+                                                            <canvas id="myCanvas"></canvas>
+                                                            <script src="/js/canvas.js"></script>
                                                             <% } %>
-                                                                <% if (theme.topCanvas) { %>
-                                                                    <canvas id="myCanvas"></canvas>
-                                                                    <script src="/js/canvas.js"></script>
+                                                                <% if(theme.bgCanvas){ %>
+                                                                    <canvas id="bgCanvas"></canvas>
+                                                                    <script src="/js/bgCanvas.js"></script>
                                                                     <% } %>
-                                                                        <% if(theme.bgCanvas){ %>
-                                                                            <canvas id="bgCanvas"></canvas>
-                                                                            <script src="/js/bgCanvas.js"></script>
-                                                                            <% } %>
-                                                                                <script src="/js/script.js"></script>
+                                                                        <script src="/js/script.js"></script>
     </body>
 
 </html>
